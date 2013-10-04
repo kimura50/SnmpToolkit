@@ -12,7 +12,7 @@ import jp.co.acroquest.tool.snmp.toolkit.entity.SnmpVarbind;
 import org.supercsv.cellprocessor.ConvertNullTo;
 import org.supercsv.cellprocessor.constraint.Unique;
 import org.supercsv.cellprocessor.ift.CellProcessor;
-import org.supercsv.exception.SuperCsvException;
+import org.supercsv.exception.SuperCSVException;
 import org.supercsv.io.CsvBeanReader;
 import org.supercsv.io.ICsvBeanReader;
 import org.supercsv.prefs.CsvPreference;
@@ -91,7 +91,7 @@ public class AgentMIBCSVLoader
                 agent.addVarbind(varbind);
             }
         }
-        catch (SuperCsvException exception)
+        catch (SuperCSVException exception)
         {
             IOException ioex = new IOException(exception.getLocalizedMessage());
             throw ioex;
