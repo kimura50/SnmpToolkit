@@ -94,11 +94,10 @@ public class Snmp4jSetRequestProcessor implements RequestProcessor
             // READ-WRITEでなければエラー応答を返す
             String accessibility = foundVarbind.getAccessibility();
             if (accessibility.equals("") == false
-                || accessibility.equals(SnmpVarbind.ACCESSIBILITY_READ_WRITE) == false)
+                && accessibility.equals(SnmpVarbind.ACCESSIBILITY_READ_WRITE) == false)
             {
                 log.warn("varbind is not writable. accessibility=" + accessibility);
 
-                retPdu.setErrorStatus(SnmpConstants.SNMP_ERROR_NOT_WRITEABLE);
                 retPdu.setErrorIndex(varCount);
 
                 Variable retObject = new Null();
